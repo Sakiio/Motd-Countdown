@@ -1,0 +1,5 @@
+name: MotdPlugin
+version: ${project.version}
+main: com.github.sakiio.motdplugin.MotdPlugin
+author: Sakiio
+description: Simple Motd Plugin
