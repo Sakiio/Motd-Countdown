@@ -22,7 +22,7 @@ public class MotdEditCommand extends Command {
             return;
         }
         if (args.length == 0) {
-            sender.sendMessage(CC.translate("&cUsage: /bmotd <text> - %NEWLINE% new line"));
+            sender.sendMessage(CC.translate("&cUsage: /bmotd <text>"));
         } else {
             final StringBuilder message = new StringBuilder();
             for (int i = 0; i < args.length; ++i) {
