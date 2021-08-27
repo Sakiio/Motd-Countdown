@@ -15,12 +15,12 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class MotdListener implements Listener {
+    private static final SimpleDateFormat  dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     @EventHandler(priority = 64)
     public void onPlayerPing(ProxyPingEvent event) {
         ServerPing ping = event.getResponse();
         try {
-            SimpleDateFormat  dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             dateFormat.setTimeZone(TimeZone.getTimeZone("EST"));
             Date date = dateFormat.parse(MotdPlugin.getInstance().getConfig().getString("MOTD.TIME-TO-EXPIRE"));
             Date localDate = Calendar.getInstance().getTime();
