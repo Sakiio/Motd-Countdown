@@ -28,6 +28,7 @@ public class MotdEditCommand extends Command {
             for (int i = 0; i < args.length; ++i) {
                 message.append(args[i]).append(" ");
             }
+
             MotdPlugin.getInstance().getConfig().set("MOTD.MOTD-EDIT", message.toString());
             MotdPlugin.getInstance().saveConfig();
             sender.sendMessage(CC.translate("&eYou have updated motd to: " + CC.translate(message.toString())));

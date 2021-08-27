@@ -25,6 +25,7 @@ public final class MotdPlugin extends Plugin {
         System.out.println(Calendar.getInstance().getTime() + "\n" + "this is a vps time");
 
         getProxy().getPluginManager().registerListener(this, new MotdListener());
+
         getProxy().getPluginManager().registerCommand(this, new MotdEditCommand());
         getProxy().getPluginManager().registerCommand(this, new ReloadCommand());
     }

@@ -9,10 +9,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Created by DevSakio
+ * Created by Sakiio
  * Project: Nucleus
  * Date: 08/01/2021 @ 12:27
  * Class: ConfigManager
+ *
+ * nucleus is old bungee project
+ *
  */
 public class ConfigManager {
 

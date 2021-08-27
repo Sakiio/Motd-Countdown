@@ -43,7 +43,7 @@ public class MotdListener implements Listener {
                 event.setResponse(ping);
             }
         } catch (ParseException e) {
-            System.out.println("Error bad format time format");
+            System.out.println("Error bad time format");
         }
     }
 }
