@@ -13,7 +13,7 @@ import net.md_5.bungee.api.plugin.Command;
 public class MotdEditCommand extends Command {
 
     public MotdEditCommand() {
-        super("bmotd");
+        super("bmotd", "bungee.manager");
     }
 
     public void execute(CommandSender sender, final String[] args) {
