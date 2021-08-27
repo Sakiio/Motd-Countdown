@@ -20,9 +20,9 @@ public class MotdListener implements Listener {
     public void onPlayerPing(ProxyPingEvent event) {
         ServerPing ping = event.getResponse();
         try {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-            format.setTimeZone(TimeZone.getTimeZone("EST"));
-            Date date = format.parse(MotdPlugin.getInstance().getConfig().getString("MOTD.TIME-TO-EXPIRE"));
+            SimpleDateFormat  dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            dateFormat.setTimeZone(TimeZone.getTimeZone("EST"));
+            Date date = dateFormat.parse(MotdPlugin.getInstance().getConfig().getString("MOTD.TIME-TO-EXPIRE"));
             Date localDate = Calendar.getInstance().getTime();
             long finalR = date.getTime() - localDate.getTime();
 
@@ -32,15 +32,18 @@ public class MotdListener implements Listener {
                     return;
                 }
 
-                String motd = CC.translate(MotdPlugin.getInstance().getConfig().getString("MOTD.MOTD-EDIT").replace("︱", "\u2503").replace("%ARROW_1", "\u27a5"));
-                motd = motd.replace("%NEWLINE%", "\n");
-                motd = motd.replace("%D_ARROW%", "\u00BB");
-                motd = motd.replace("%TIME%", new DateUtils().getDate(finalR));
+                String motd = CC.translate(MotdPlugin.getInstance().getConfig().getString("MOTD.MOTD-EDIT")
+                        .replace("︱", "\u2503")
+                        .replace("%ARROW_1", "\u27a5")
+                        .replace("%NEWLINE%", "\n")
+                        .replace("%D_ARROW%", "\u00BB")
+                        .replace("%TIME%", new DateUtils().getDate(finalR)));
+
                 ping.setDescription(motd);
                 event.setResponse(ping);
             }
         } catch (ParseException e) {
-            MotdPlugin.getInstance().getProxy().getConsole().sendMessage(CC.translate("&cError bad format time"));
+            System.out.println("Error bad format time format");
         }
     }
 }

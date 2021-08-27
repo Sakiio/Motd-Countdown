@@ -1,7 +1,6 @@
 package com.github.sakiio.motdplugin.utils;
 
 import com.github.sakiio.motdplugin.MotdPlugin;
-import net.md_5.bungee.api.ChatColor;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,6 +1,7 @@
 package com.github.sakiio.motdplugin;
 
 import com.github.sakiio.motdplugin.command.MotdEditCommand;
+import com.github.sakiio.motdplugin.command.ReloadCommand;
 import com.github.sakiio.motdplugin.listener.MotdListener;
 import com.github.sakiio.motdplugin.utils.ConfigManager;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -21,10 +22,11 @@ public final class MotdPlugin extends Plugin {
         this.onConfig();
         this.reloadConfig();
 
-        System.out.println(Calendar.getInstance().getTime());
+        System.out.println(Calendar.getInstance().getTime() + "\n" + "this is a vps time");
 
         getProxy().getPluginManager().registerListener(this, new MotdListener());
         getProxy().getPluginManager().registerCommand(this, new MotdEditCommand());
+        getProxy().getPluginManager().registerCommand(this, new ReloadCommand());
     }
 
     @Override
