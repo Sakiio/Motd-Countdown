@@ -67,7 +67,7 @@
             <artifactId>bungeecord-api</artifactId>
             <version>1.7</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/BungeeCord-1.7.jar</systemPath>
+            <systemPath>${project.basedir}/libs/BungeeCord.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

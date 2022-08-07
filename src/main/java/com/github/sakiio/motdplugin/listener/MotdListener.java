@@ -20,6 +20,7 @@ public class MotdListener implements Listener {
     @EventHandler(priority = 64)
     public void onPlayerPing(ProxyPingEvent event) {
         ServerPing ping = event.getResponse();
+
         try {
             dateFormat.setTimeZone(TimeZone.getTimeZone("EST"));
             Date date = dateFormat.parse(MotdPlugin.getInstance().getConfig().getString("MOTD.TIME-TO-EXPIRE"));
