@@ -17,10 +17,9 @@ public class ReloadCommand extends Command {
 
     @Override
     public void execute(CommandSender sender, String[] strings) {
-        if (sender.hasPermission(getPermission())) {
-            sender.sendMessage(CC.translate("&cYou dont have perms"));
+        if (sender.hasPermission(getPermission()))
             return;
-        }
+
 
         MotdPlugin.getInstance().reloadConfig();
         sender.sendMessage(CC.translate("&3&lConfig has been reload!"));

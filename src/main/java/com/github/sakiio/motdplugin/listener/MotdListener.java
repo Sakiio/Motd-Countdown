@@ -15,25 +15,32 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class MotdListener implements Listener {
+    private final MotdPlugin plugin;
     private static final SimpleDateFormat  dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+    public MotdListener(MotdPlugin plugin) {
+        this.plugin = plugin;
+    }
 
     @EventHandler(priority = 64)
     public void onPlayerPing(ProxyPingEvent event) {
         ServerPing ping = event.getResponse();
 
         try {
-            dateFormat.setTimeZone(TimeZone.getTimeZone("EST"));
-            Date date = dateFormat.parse(MotdPlugin.getInstance().getConfig().getString("MOTD.TIME-TO-EXPIRE"));
+            dateFormat.setTimeZone(TimeZone.getTimeZone(plugin.getInstance().getConfig().getString("MOTD.TIME-ZONE")));
+            Date date = dateFormat.parse(plugin.getInstance().getConfig().getString("MOTD.TIME-TO-EXPIRE"));
             Date localDate = Calendar.getInstance().getTime();
+
             long finalR = date.getTime() - localDate.getTime();
 
-            if (MotdPlugin.getInstance().getConfig().getBoolean("MOTD.STATUS")) {
-                if (MotdPlugin.getInstance().getConfig().getString("MOTD.MOTD-EDIT") == null){
-                    System.out.println("Set Motd in config.yml");
+            if (plugin.getInstance().getConfig().getBoolean("MOTD.STATUS")) {
+                if (plugin.getInstance().getConfig().getString("MOTD.MOTD-EDIT") == null){
+                    System.out.println("Error -> Set MOTD-EDIT in config.yml");
                     return;
                 }
 
-                String motd = CC.translate(MotdPlugin.getInstance().getConfig().getString("MOTD.MOTD-EDIT")
+                String motd = CC.translate(
+                        plugin.getInstance().getConfig().getString("MOTD.MOTD-EDIT")
                         .replace("︱", "\u2503")
                         .replace("%ARROW_1", "\u27a5")
                         .replace("%NEWLINE%", "\n")
@@ -44,7 +51,7 @@ public class MotdListener implements Listener {
                 event.setResponse(ping);
             }
         } catch (ParseException e) {
-            System.out.println("Error bad time format");
+            System.out.println("Error -> Change the time format in config.yml");
         }
     }
 }

@@ -19,12 +19,11 @@ public final class MotdPlugin extends Plugin {
 
     @Override
     public void onEnable() {
-        this.onConfig();
-        this.reloadConfig();
+        this.loadConfig();
 
         System.out.println(Calendar.getInstance().getTime() + "\n" + "this is a vps time");
 
-        getProxy().getPluginManager().registerListener(this, new MotdListener());
+        getProxy().getPluginManager().registerListener(this, new MotdListener(this));
 
         getProxy().getPluginManager().registerCommand(this, new MotdEditCommand());
         getProxy().getPluginManager().registerCommand(this, new ReloadCommand());
@@ -33,7 +32,7 @@ public final class MotdPlugin extends Plugin {
     @Override
     public void onDisable() { }
 
-    public void onConfig() {
+    public void loadConfig() {
         try {
             config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(ConfigManager.startConfig(this, "config.yml"));
         }
