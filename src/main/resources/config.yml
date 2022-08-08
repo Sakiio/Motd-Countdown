@@ -4,6 +4,7 @@
 # %TIME% to get countdown
 
 MOTD:
+  TIME-ZONE: "EST"
   STATUS: true
   MOTD-EDIT: "%TIME% %NEWLINE% &3HAIRLY GAME"
   TIME-TO-EXPIRE: "2022-12-31 07:50:00"
