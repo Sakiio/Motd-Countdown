@@ -1,9 +1,11 @@
+#%D_ARROW% to get arrow
+#%NEWLINE% to write in other line
+#& + number to write with color
+# %TIME% to get countdown
+
 MOTD:
   STATUS: true
   MOTD-EDIT: "%TIME% %NEWLINE% &3HAIRLY GAME"
   TIME-TO-EXPIRE: "2022-12-31 07:50:00"
   TEXT-WHEN-EXPIRE: "Time finish"
-  #%D_ARROW% to get arrow
-  #%NEWLINE% to write in other line
-  #& + number to write with color
-  # %TIME% to get countdown
+
