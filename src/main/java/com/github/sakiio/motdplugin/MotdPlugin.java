@@ -1,7 +1,7 @@
 package com.github.sakiio.motdplugin;
 
-import com.github.sakiio.motdplugin.command.MotdEditCommand;
 import com.github.sakiio.motdplugin.command.ReloadCommand;
+import com.github.sakiio.motdplugin.command.SetProfileCommand;
 import com.github.sakiio.motdplugin.listener.MotdListener;
 import com.github.sakiio.motdplugin.utils.ConfigManager;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -25,7 +25,7 @@ public final class MotdPlugin extends Plugin {
 
         getProxy().getPluginManager().registerListener(this, new MotdListener(this));
 
-        getProxy().getPluginManager().registerCommand(this, new MotdEditCommand());
+        getProxy().getPluginManager().registerCommand(this, new SetProfileCommand());
         getProxy().getPluginManager().registerCommand(this, new ReloadCommand());
     }
 

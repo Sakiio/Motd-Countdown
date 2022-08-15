@@ -17,7 +17,7 @@ public class ReloadCommand extends Command {
 
     @Override
     public void execute(CommandSender sender, String[] strings) {
-        if (sender.hasPermission(getPermission()))
+        if (!sender.hasPermission(getPermission()))
             return;
 
 
