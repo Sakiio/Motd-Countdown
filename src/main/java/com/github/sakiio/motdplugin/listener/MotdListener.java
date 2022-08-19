@@ -15,6 +15,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import java.util.logging.Level;
+
 public class MotdListener implements Listener {
     private final MotdPlugin plugin;
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -54,7 +56,7 @@ public class MotdListener implements Listener {
             event.setResponse(ping);
 
         } catch (ParseException e) {
-            System.out.println("Error -> Change the time format in config.yml");
+            getLogger().log(Level.SEVERE, "Change the time format on config.yml");
         }
     }
 }
