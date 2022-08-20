@@ -56,7 +56,7 @@ public class MotdListener implements Listener {
             event.setResponse(ping);
 
         } catch (ParseException e) {
-            getLogger().log(Level.SEVERE, "Change the time format on config.yml");
+//            getLogger().log(Level.SEVERE, "Change the time format on config.yml");
         }
     }
 }

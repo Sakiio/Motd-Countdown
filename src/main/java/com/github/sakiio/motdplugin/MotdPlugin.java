@@ -21,7 +21,7 @@ public final class MotdPlugin extends Plugin {
     public void onEnable() {
         this.loadConfig();
 
-        System.out.println(Calendar.getInstance().getTime() + "\n" + "this is a vps time");
+        getLogger().info(Calendar.getInstance().getTime() + "\n" + "this is a vps time");
 
         getProxy().getPluginManager().registerListener(this, new MotdListener(this));
 
@@ -38,15 +38,6 @@ public final class MotdPlugin extends Plugin {
         }
         catch (IOException exception) {
             exception.printStackTrace();
-        }
-    }
-
-    public void saveConfig() {
-        try {
-            ConfigurationProvider.getProvider(YamlConfiguration.class).save(getConfig(), new File(this.getDataFolder(), "config.yml"));
-        }
-        catch (IOException e) {
-            throw new RuntimeException("Unable to save configuration", e);
         }
     }
 
